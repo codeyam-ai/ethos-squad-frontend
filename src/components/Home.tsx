@@ -1,7 +1,8 @@
+import { toast } from 'react-toastify';
 import { EthosConnectStatus, SignInButton, ethos } from 'ethos-connect'
 import { useCallback, useState } from 'react'
 import { Dialog } from '@headlessui/react'
-import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
+import { Bars3Icon, InformationCircleIcon, XMarkIcon } from '@heroicons/react/24/outline'
 import mintNft from '../lib/mintNft'
 
 const navigation = [
@@ -25,8 +26,17 @@ export default function Home() {
         setLoading(false);
         if (mintResult.error) {
             console.error('ERROR:', mintResult.error);
+            toast('Oops! There was an error minting your Squad member.', { type: 'error' })
         } else {
             console.log(mintResult);
+            const mintResultData = mintResult.result.data.display.data
+            toast(
+                `Congrats, you just minted ${mintResultData.name}!`,
+                {
+                    type: 'success',
+                    icon: <img src={mintResultData.image_url} alt={mintResultData.description} />,
+                }
+            )
         }
     }, [wallet])
 

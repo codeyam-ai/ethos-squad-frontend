@@ -1,4 +1,6 @@
 import { Chain, EthosConnectProvider } from 'ethos-connect';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import Home from "./components/Home";
 
 function App() {
@@ -10,6 +12,7 @@ function App() {
     dappIcon={<SquadDappIcon />}
     connectMessage="Sign in to join the Squad!"
   >
+    <ToastContainer />
     <Home />
   </EthosConnectProvider>);
 }
