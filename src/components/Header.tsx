@@ -16,13 +16,21 @@ const Header: FC = () => {
         <header className="absolute inset-x-0 top-0 z-50">
             <nav className="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8" aria-label="Global">
                 <div className="flex lg:flex-1">
-                    <a href="#" className="-m-1.5 p-1.5">
-                        <span className="sr-only">Your Company</span>
+                    <a href="#" className="-m-1.5 p-1.5 flex flex-row items-center gap-3">
+                        <span className="sr-only">Ethos Squad</span>
                         <img
-                            className="h-8 w-auto"
-                            src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
+                            className="h-12 w-auto"
+                            src="/mimi-card-stack.png"
                             alt=""
                         />
+                        <span className='flex gap-1'>
+                            <h1 className="text-xl font-light tracking-tight text-gray-900 sm:text-2xl">
+                                Ethos
+                            </h1>
+                            <h1 className="text-xl font-bold tracking-tight text-gray-900 sm:text-2xl">
+                                Squad
+                            </h1>
+                        </span>
                     </a>
                 </div>
                 <div className="flex lg:hidden">
