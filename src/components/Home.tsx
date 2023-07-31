@@ -1,4 +1,4 @@
-import { SignInButton } from 'ethos-connect'
+import { SignInButton, ethos } from 'ethos-connect'
 import { useState } from 'react'
 import { Dialog } from '@headlessui/react'
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
@@ -146,14 +146,14 @@ export default function Home() {
                                         Mint your Squad NFTs only on Sui. Join the community and get access to exclusive benefits.
                                     </p>
                                     <div className="mt-10 flex items-center gap-x-6">
-                                        <a
-                                            href="#"
+                                        <button
                                             className="rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                                            onClick={ethos.showSignInModal}
                                         >
-                                            Get started
-                                        </a>
+                                            Connect Wallet to Mint
+                                        </button>
                                         <a href="#" className="text-sm font-semibold leading-6 text-gray-900">
-                                            Live demo <span aria-hidden="true">→</span>
+                                            See your Squad <span aria-hidden="true">→</span>
                                         </a>
                                     </div>
                                 </div>
