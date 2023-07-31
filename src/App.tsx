@@ -1,9 +1,9 @@
 import { Chain, EthosConnectProvider } from 'ethos-connect';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import Home from "./components/Home";
+import Home from "./pages/Home";
 import { BrowserRouter as Router, Route, Link, Routes } from 'react-router-dom';
-import MySquad from './components/MySquad';
+import MySquad from './pages/MySquad';
 import Header from './components/Header';
 
 function App() {
