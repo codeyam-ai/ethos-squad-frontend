@@ -1,7 +1,8 @@
 import { EthosConnectStatus, SignInButton, ethos } from 'ethos-connect'
-import { useState } from 'react'
+import { useCallback, useState } from 'react'
 import { Dialog } from '@headlessui/react'
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
+import mintNft from '../lib/mintNft'
 
 const navigation = [
     { name: 'Product', href: '#' },
@@ -12,7 +13,22 @@ const navigation = [
 
 export default function Home() {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
-    const { status } = ethos.useWallet();
+    const [loading, setLoading] = useState(false);
+    const { status, wallet } = ethos.useWallet();
+
+    const mint = useCallback(async () => {
+        if (!wallet) {
+            return;
+        }
+        setLoading(true);
+        const mintResult = await mintNft(wallet);
+        setLoading(false);
+        if (mintResult.error) {
+            console.error('ERROR:', mintResult.error);
+        } else {
+            console.log(mintResult);
+        }
+    }, [wallet])
 
     return (
         <div className="bg-white">
@@ -151,9 +167,10 @@ export default function Home() {
                                             <div className="mt-10 flex items-center gap-x-6">
                                                 <button
                                                     className="rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-                                                    onClick={() => { }}
+                                                    onClick={mint}
+                                                    disabled={loading}
                                                 >
-                                                    Mint a Squad
+                                                    {loading ? 'Minting...' : 'Mint a Squad Member'}
                                                 </button>
 
                                                 <a href="#" className="text-sm font-semibold leading-6 text-gray-900">
