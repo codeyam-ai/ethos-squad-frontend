@@ -4,6 +4,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import Home from "./components/Home";
 import { BrowserRouter as Router, Route, Link, Routes } from 'react-router-dom';
 import MySquad from './components/MySquad';
+import Header from './components/Header';
 
 function App() {
   return (<EthosConnectProvider
@@ -17,6 +18,7 @@ function App() {
     <ToastContainer />
     <Router>
       <div>
+        <Header />
         <Routes>
           <Route path="/my-squad" element={<MySquad />} />
           <Route path="/" element={<Home />} />
