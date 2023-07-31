@@ -6,6 +6,8 @@ It uses Typescript and Tailwind CSS.
 
 This repo is an example of how to use [EthosConnect](https://docs.ethoswallet.xyz/), a library that makes it easy to connect your dApp to the Sui blockchain and let your users connect their wallet.
 
+**This is the completed code.** To clone the template starter repo that has not implemented EthosConnect, view [Ethos Squad Frontend Starter](https://github.com/EthosWallet/ethos-squad-frontend-starter).
+
 ## Available Scripts
 
 In the project directory, you can run:
