@@ -2,7 +2,7 @@ import { toast } from 'react-toastify';
 import { EthosConnectStatus, SignInButton, ethos } from 'ethos-connect'
 import { useCallback, useState } from 'react'
 import { Dialog } from '@headlessui/react'
-import { Bars3Icon, InformationCircleIcon, XMarkIcon } from '@heroicons/react/24/outline'
+import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
 import mintNft from '../lib/mintNft'
 
 const navigation = [
