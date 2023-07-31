@@ -46,7 +46,7 @@ export default function Home() {
                         ))}
                     </div>
                     <div className="hidden lg:flex lg:flex-1 lg:justify-end">
-                        <SignInButton />
+                        {status === EthosConnectStatus.Connected ? <ethos.components.AddressWidget /> : <SignInButton />}
                     </div>
                 </nav>
                 {/* BEGIN MOBILE MENU */}
