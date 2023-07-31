@@ -1,19 +1,9 @@
+import { EthosConnectStatus, ethos } from 'ethos-connect';
+import { useCallback, useState } from 'react';
 import { toast } from 'react-toastify';
-import { EthosConnectStatus, SignInButton, ethos } from 'ethos-connect'
-import { useCallback, useState } from 'react'
-import { Dialog } from '@headlessui/react'
-import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
-import mintNft from '../lib/mintNft'
-
-const navigation = [
-    { name: 'Product', href: '#' },
-    { name: 'Features', href: '#' },
-    { name: 'Marketplace', href: '#' },
-    { name: 'Company', href: '#' },
-]
+import mintNft from '../lib/mintNft';
 
 export default function Home() {
-    const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
     const [loading, setLoading] = useState(false);
     const { status, wallet } = ethos.useWallet();
 
@@ -106,7 +96,7 @@ export default function Home() {
                                                     {loading ? 'Minting...' : 'Mint a Squad Member'}
                                                 </button>
 
-                                                <a href="#" className="text-sm font-semibold leading-6 text-gray-900">
+                                                <a href="/my-squad" className="text-sm font-semibold leading-6 text-gray-900">
                                                     See your Squad <span aria-hidden="true">→</span>
                                                 </a>
                                             </div>
