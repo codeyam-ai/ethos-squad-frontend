@@ -1,4 +1,4 @@
-import { SignInButton, ethos } from 'ethos-connect'
+import { EthosConnectStatus, SignInButton, ethos } from 'ethos-connect'
 import { useState } from 'react'
 import { Dialog } from '@headlessui/react'
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
@@ -12,6 +12,7 @@ const navigation = [
 
 export default function Home() {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+    const { status } = ethos.useWallet();
 
     return (
         <div className="bg-white">
@@ -145,17 +146,29 @@ export default function Home() {
                                     <p className="relative mt-6 text-lg leading-8 text-gray-600 sm:max-w-md lg:max-w-none">
                                         Mint your Squad NFTs only on Sui. Join the community and get access to exclusive benefits.
                                     </p>
-                                    <div className="mt-10 flex items-center gap-x-6">
-                                        <button
-                                            className="rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-                                            onClick={ethos.showSignInModal}
-                                        >
-                                            Connect Wallet to Mint
-                                        </button>
-                                        <a href="#" className="text-sm font-semibold leading-6 text-gray-900">
-                                            See your Squad <span aria-hidden="true">→</span>
-                                        </a>
-                                    </div>
+                                    {
+                                        status === EthosConnectStatus.Connected ? (
+                                            <div className="mt-10 flex items-center gap-x-6">
+                                                <button
+                                                    className="rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                                                    onClick={() => { }}
+                                                >
+                                                    Mint a Squad
+                                                </button>
+
+                                                <a href="#" className="text-sm font-semibold leading-6 text-gray-900">
+                                                    See your Squad <span aria-hidden="true">→</span>
+                                                </a>
+                                            </div>
+                                        ) : (
+                                            <button
+                                                className="rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                                                onClick={ethos.showSignInModal}
+                                            >
+                                                Connect Wallet to Mint
+                                            </button>
+                                        )
+                                    }
                                 </div>
                                 <div className="mt-14 flex justify-end gap-8 sm:-mt-44 sm:justify-start sm:pl-20 lg:mt-0 lg:pl-0">
                                     <div className="ml-auto w-44 flex-none space-y-8 pt-32 sm:ml-0 sm:pt-80 lg:order-last lg:pt-36 xl:order-none xl:pt-80">
