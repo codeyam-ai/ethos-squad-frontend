@@ -8,11 +8,15 @@ This repo is an example of how to use [EthosConnect](https://docs.ethoswallet.xy
 
 **This is the completed code.** To clone the template starter repo that has not implemented EthosConnect, view [Ethos Squad Frontend Starter](https://github.com/EthosWallet/ethos-squad-frontend-starter).
 
-## Available Scripts
+## Getting Started
 
 In the project directory, you can run:
 
-### `npm start`
+`npm install`
+
+then
+
+`npm start`
 
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
